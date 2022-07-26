@@ -207,7 +207,7 @@ const strings = {
 	"日本語": {
 		"AdvanceHelp": "ゲームを進めるためには、スペースキーを押すかクリックします。",
 		"Audio": "オーディオ",
-		"AutoPlay": "",
+		"AutoPlay": "自動再生", // 追加
 		"AutoPlaySpeed": "自動再生速度",
 
 		"Back": "巻き戻し",
@@ -220,7 +220,7 @@ const strings = {
 		"FullScreen": "全画面表示",
 
 		"Help": "ヘルプ",
-		"Hide": "",
+		"Hide": "隠す", // 追加
 		"HideButton": "テキストを隠します。",
 
 		"iOSAudioWarning": "iOSではオーディオ設定がサポートされていません。",
@@ -252,12 +252,12 @@ const strings = {
 		"SaveInSlot": "スロットにセーブする",
 		"Settings": "環境設定",
 		"SettingsButton": "設定画面を開きます。",
-		"Show": "",
-		"SlotDeletion": "",
-		"SlotOverwrite": "",
+		"Show": "表示", // 追加
+		"SlotDeletion": "スロット削除", // 追加
+		"SlotOverwrite": "スロット上書き", // 追加
 		"Sound": "効果音の音量",
 		"Start": "スタート",
-		"Stop": "",
+		"Stop": "ストップ", // 追加
 
 		"TextSpeed": "テキストスピード",
 

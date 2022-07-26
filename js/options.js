@@ -82,13 +82,16 @@ let engine = {
 let settings = {
 
 	// Initial Language for Multilanguage Games or for the Default GUI Language.
-	"Language": "English",
+	//"Language": "English",
+//	"Language": "Español",
+//	"Language": "简体中文",
+	"Language": "日本語",
 
 	// Initial Volumes from 0.0 to 1.
 	"Volume": {
-		"Music": 1,
-		"Voice": 1,
-		"Sound": 1
+		"Music": 0.5,
+		"Voice": 0.5,
+		"Sound": 0.5,
 	},
 
 	// Initial resolution used for Electron, it must match the settings inside

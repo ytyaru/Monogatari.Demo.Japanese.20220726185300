@@ -100,6 +100,322 @@ const characters = {
 };
 
 let script = {
+	"日本語":{
+		"Start":[
+			{"Conditional": {
+				"Condition": function () {
+					return Storage.get ("played") == "true";
+				},
+				"True": {"Choice":{
+					"Text": "すでにデモをプレイしているようですが、紹介をスキップしますか？",
+					"Skip":{
+						"Text": "スキップ",
+						"Do": "jump Topics"
+					},
+					"Continue":{
+						"Text": "コンテニュー",
+						"Do": "jump Introduction"
+					}
+				}},
+				"False": "jump Introduction"
+			}}
+		],
+
+		"Introduction": [
+			"clear",
+			"scene black with fadeIn",
+			{"Input": {
+				"Text": "あなたの名前は？",
+				"Validation": function (input) {
+					return input.trim().length > 0;
+				},
+				"Save": function (input) {
+					Storage.set ("PlayerName", input);
+					storage.player.name = input;
+					return true;
+				},
+				"Warning": "名前を入力する必要があります！"
+			}},
+			"centered あなたは知っていますか？",
+			"centered 最初は何もありませんでした。とても暗くて静かで、ただ空虚でした……",
+			"particles universe",
+			"centered すると突然、現れ始めました……",
+			"stop particles",
+			{"Function": {
+				"Apply": function () {
+					particles.universe.particles.number.value = 10;
+					return true;
+				},
+				"Reverse": function () {
+					particles.universe.particles.number.value = 0;
+					return true;
+				},
+			}},
+			"particles universe",
+			"e 最初は多くはありませんでしたが、少しずつ、どんどんやって来ました……",
+			"stop particles",
+			{"Function": {
+				"Apply": function () {
+					particles.universe.particles.number.value = 20;
+					return true;
+				},
+				"Reverse": function () {
+					particles.universe.particles.number.value = 10;
+					return true;
+				},
+			}},
+			"particles universe",
+			"e 10分の1が数百になりました……",
+			"stop particles",
+			{"Function": {
+				"Apply": function () {
+					particles.universe.particles.number.value = 50;
+					return true;
+				},
+				"Reverse": function () {
+					particles.universe.particles.number.value = 20;
+					return true;
+				},
+			}},
+			"particles universe",
+			"e 数百が数千になりました……",
+			"e すぐに彼らはそこにいるだけではありませんでした……彼らは相互作用し、より高い目標のために力を合わせていました……",
+			"stop particles",
+			{"Function": {
+				"Apply": function () {
+					particles.universe.particles.line_linked.enable = true;
+					return true;
+				},
+				"Reverse": function () {
+					particles.universe.particles.line_linked.enable = false;
+					return true;
+				},
+			}},
+			"particles universe",
+			"e 彼らは準備をしていました……",
+			"stop particles",
+
+			"play music Theme",
+			"scene Classroom",
+			"show e Normal center with fadeIn",
+			"e さて、今日はこれでおしまいです。家に帰ることができます。",
+
+			"p 待って...何？",
+
+			"show e Doubt center with fadeIn",
+
+			"e なにか問題でも？",
+			"p その話は何についてでしたか？終わらせませんか？",
+
+			"show e Happy with fadeIn",
+			"e ああ！なるほど、興味をそそられましたね。ええと{{player.name}}、実際のところ、私が何について話しているのかわからないのですが、私たちは誰かが書いた小説を覚えていますか？",
+
+			"p ああ、そうだ...いや、待って、何？",
+
+			"show e Mad at center with fadeIn",
+
+			"e ああ、これは二度とない。聞いて、私たちがいるこの世界？それも本物ではありません！実際、あなたもあなたではありません！",
+
+			"e 本当のあなたは、私たちが話すときに非常に混乱した方法でこれを見ている人です。",
+
+			"e 名前さえわからないのですが、どうしたの？さあ、これを選択できると思います。",
+
+			{"Input": {
+				"Text": "私の名前は何ですか？",
+				"Validation": function (input) {
+					return input.trim().length > 0;
+				},
+				"Save": function (input) {
+					Storage.set ("Evelyn_Name", input);
+					storage.evelyn_name = input;
+					return true;
+				},
+				"Warning": "いい名前を選んでください。"
+			}},
+
+			"show e Normal with fadeIn",
+			{"Conditional": {
+				"Condition": function(){
+					return storage.evelyn_name == "エブリン";
+				},
+				"True": "e エブリン……それは素敵な名前です！大好きです！",
+				"False": "e {{evelyn_name}}... おお、いいね！"
+			}},
+
+			"e 少し混乱しているようですが、ビジュアルノベルでの生活が本当に何を意味するのか見てみましょう。",
+
+			"p ええ...確かに...つまり...リンクはデモを言っていたので...私は推測しますか？",
+
+			"show e Happy with fadeIn",
+
+			"e すごい！学ぶことがたくさんあります！",
+
+			"jump Topics",
+		],
+
+		"Topics": [
+			"scene Classroom",
+			"show e Happy with fadeIn",
+			function () {
+				Storage.set ("played", true);
+				return true;
+			},
+			{"Choice":{
+				"Text":	"見てみましょう、あなたは何について知りたいですか？",
+				"Animations":{
+					"Text": "アニメーション",
+					"Do": "jump Animations"
+				},
+				"Media":{
+					"Text": "マルチメディア",
+					"Do": "jump Media"
+				},
+				"Scripting":{
+					"Text": "スクリプト",
+					"Do": "jump Script"
+				},
+				"Playing":{
+					"Text": "プレイング",
+					"Do": "jump Playing"
+				},
+				"Nothing": {
+					"Text": "何もない",
+					"Do": "jump Nothing",
+					"Condition": function () {
+						return storage.playing && storage.media && storage.scripting && storage.animations;
+					}
+				}
+			}}
+		],
+
+		"Animations": [
+			function () {
+				storage.animations = true;
+				return true;
+			},
+			"scene Classroom with fadeIn",
+			"show e Normal with fadeIn",
+			"e ああ、アニメーションは楽しいです！彼らは私たちと私たちが住んでいる世界に奇妙なことを起こさせます。",
+			"e 自分でほとんど何でもアニメーション化できますが、背景と私たちのキャラクターの両方で使用を開始できる事前定義されたアニメーションがいくつかあります",
+			"e たとえば、自分だけの小さな地震が発生する可能性があります。",
+			"scene Classroom with shake infinite",
+			"show e Normal with fadeIn",
+			"e ああ、待って、世界が動いているのなら、どうして私がじっと立っているのか、それは意味がありませんか？",
+			"show e Happy with shake infinite",
+			"e ああ！ご覧のとおり、楽しみたい人以外の理由で、この辺りで物事が本当に奇妙になる可能性があります。",
+			"p ええと…そんなことは…私たちにとって悪いことではないですか？",
+			"show e Doubt with shake infinite",
+			"e 悪い？彼らがこれを閉じるとすぐに私たちの存在がどのように終わるか、彼らが救うのを忘れるたびに私たちがどのように記憶喪失になるかを聞くまで待ってください！",
+			"scene Classroom with zoomIn",
+			"show e Normal with fadeIn",
+			"e でもねえ、物事はそれほど悪くはありません、私たちは他の誰もできないことを経験することもできます。",
+			{"Function": {
+				"Apply": function () {
+					particles.universe.particles.number.value = 200;
+					particles.universe.particles.line_linked.enable = false;
+					return true;
+				},
+				"Reverse": function () {
+					particles.universe.particles.number.value = 100;
+					particles.universe.particles.line_linked.enable = true;
+					return true;
+				},
+			}},
+			"particles universe",
+
+			"e 私は彼らがあなたが本当の出身であるところにこのようなものを持っていないに違いない。",
+			"p これは何ですか？触ってもいいですか？",
+
+			"e できますよ！これらはパーティクルと呼ばれ、<i>風、星、雪、雨</ i>など、ほとんどすべての種類の奇妙なものを作成するのに役立ちます。",
+			"e あなたがこっけいなタイプなら、すべてのアニメーションは主にCSSを介して達成されることを知っておく必要がありますが、JavaScriptも使用できます。選択はあなた次第です！",
+			"stop particles",
+			"jump Topics"
+		],
+
+		"Nothing":[
+			"scene Home",
+			"show e Normal with fadeIn",
+			"e さて、それは今のところ私たちの冒険に終わると思います",
+			"p すでに？とても楽しかったです！",
+			"e あうう ごめん {{player.name}}、私たちの作家は想像力が限られているので、これは本当に短かったです。",
+			"e それでも、私たちが住んでいるこの素晴らしい世界について多くを学ぶことができたと思います。",
+			"e あなたがインスピレーションを得て、新しい小説を世界にもたらす準備ができていることを願っています！",
+			"e 私はそれを待っています、頑張ってください！",
+			"notify End 2000",
+			"end"
+		],
+
+		"Script":[
+			function () {
+				storage.scripting = true;
+				return true;
+			},
+			"scene Library",
+			"show e Normal with fadeIn",
+			"e 作家として、書くのが簡単な言語を持つことが重要であるため、物語は<a href='https://ja.renpy.org/'>レンピー</a>のような言語を持っています。",
+			"p 物語？",
+			"e はい！物語は私たちが生きているエンジンです。私たちの人生を構成する作家がそれに集中し、誰にとっても素晴らしいストーリーを作成できるように、それを十分にシンプルに保つことが重要です。",
+			"e <a href='https://ja.renpy.org/'>RenPy</a>に精通していれば、物語で書くのは信じられないほど簡単です。そうでない場合でも、構文は非常に単純で、すぐに書くことができます。",
+			"p まあ、それは私にはなじみがありません、それは確かです...",
+			"show e Happy with fadeIn",
+			"e ばかげたことはありません、私は本当のあなたと話していました、おそらくこのような小説をたくさん演奏したことがあります",
+			"show e Normal with fadeIn",
+			"e ドキュメントには、書き始めるために必要なすべての例があります。",
+			"e 物語はオープンソースであり、MITライセンスの下でリリースされているため、すべてのプロジェクトで使用できます。私はあなたのプロジェクトがすぐに見られることを本当に望んでいます！",
+			"e ウェブが大きく進化したことをご存知かもしれませんが、私たちが知っているようにビジュアルノベルを作成できるだけでなく、より素晴らしいものを作成することもできます。",
+
+			"e それは本当にあなたの想像力次第です！、ウェブ用のAPIはたくさんあり、ビジュアルノベルに簡単に統合できます",
+			"e 名前を付けると、アプリ内購入などのPaypal統合、リアルタイム情報、アカウントや保護された情報などを持つためにビジュアルノベルのバックエンド全体を作成することもできます。空は限界です！",
+
+			"e これで、物語は応答性が高くなります。つまり、使用しているデバイスに関係なく、誰もがあなたの小説を楽しむことができます。",
+			"e インターフェースはHTML5で書かれていますが、前に言った機能はJavascriptで書かれており、すべてのスタイルは主にCSSです。",
+			"e つまり、Webで利用可能なAPIを使用してリアルタイムのデータなどにアクセスしたり、ソーシャルメディアに接続したりすることもできます。",
+			"e 物語を試して、それを拡張して、これまで誰も見たことがないようなビジュアルノベルを作成してください！",
+			"jump Topics"
+		],
+
+		"Media":[
+			function () {
+				storage.media = true;
+				return true;
+			},
+			"scene Sea",
+			"show e Normal with fadeIn",
+			"e だから...メディア、私たちは私たちの世界で何を見ることができますか？",
+			"e さて、画像はあなたが今見ているものですが、いくつかのトリックが残っています。",
+			"e たとえば、ビデオはもう少し動きを見せるための良い方法です。私が何を意味するのかをお見せしましょう。",
+			"play video Dandelion",
+			"show e Happy",
+			"e いいですね。しかし、それだけではありません。これをミュートにしない限り、音楽を聴いているはずです。",
+			"show e Doubt",
+			"e 小説で<i>音楽、音、声</i>を聞くことができますが、これには音楽しかありません。",
+			"p 作家はちょっと…怠け者でしたか？",
+			"e 丁度！しかしねえ、このすべての可能性を実際に利用する他の多くの人がいます！",
+			"e 彼はまた、描画とデザインに夢中になっているので、なぜすべてがとてもよく見えるのかと疑問に思うかもしれません。",
+			"e さて、ここで使用されているリソースは、本当に素晴らしい人々が彼らの素晴らしさを共有しようと願って作ったものです。この人々に拍手を送りましょう！",
+			"display message Credits",
+			"show e Normal",
+			"e さて、この世界はWebベースの世界です。ブラウザでサポートされている任意の形式を使用できます。つまり、基本的なJPG、PNG、GIF（ええ、アニメーションGIF）だけでなく、SVGなども使用できます。",
+			"e SVGを使用することを強くお勧めします。画面の解像度に関係なく、見栄えが良くなるため、すべての人のエクスペリエンスが確実に向上します。",
+			"p 画面の解像度？あなたは何について話していますか？",
+			"e おー！私たちが画面の中に表示されていたと言うのを忘れたと思います...それを私たちの現実への鏡と考えてください、そして解像度は私たちがどれだけ見栄えが良いかです",
+			"jump Topics"
+		],
+
+		"Playing":[
+			function () {
+				storage.playing = true;
+				return true;
+			},
+			"scene Room",
+			"show e Normal with fadeIn",
+			"e 物語で作ったビジュアルノベルをプレイするのは素晴らしい経験です。",
+			"e ウェブ上にある場合は、何もインストールする必要はありません。ページにアクセスしてプレイするだけです。それと同じくらい簡単です。",
+			"e 今、それは完全に開発者に依存していますが、彼らがあなたのゲームに追加できる機能は無限です！そのため、VNではこれまでに見たことのない多くのことを楽しむことができます。",
+			"e 友達とゲームを共有することが以前よりもさらに簡単になりました。",
+			"jump Topics"
+		]
+	},
 	// The game starts here.
 	"English":{
 		"Start":[
