@@ -1,22 +1,43 @@
-# Monogatari
-Built to bring Visual Novels to the modern web and take them to the next level, making it easy for anyone to create and distribute Visual Novels in a simple way so that anyone can enjoy them on pretty much anywhere, create games with features that no one has ever imagined... it is time for Visual Novels to Evolve.
+# [Monogatari][] [Demo][] 日本語化
+
+[Monogatari]:https://github.com/Monogatari/Monogatari
+[Demo-code]:https://github.com/Monogatari/Demo
+[Demo]:https://monogatari.io/demo/
+
+　ビジュアルノベルを最新のWebに持ち込み、次のレベルに引き上げるために構築されているため、誰でも簡単にビジュアルノベルを作成および配布できるため、誰でもどこでも楽しむことができ、誰もいない機能を備えたゲームを作成できます。想像したことがあります...ビジュアルノベルが進化する時が来ました。
+
+　このプロジェクトは[Demo-code][]をフォークして日本語化したものです。[Demo][]が日本語で表示されます。
+
+<!--
+## [DEMO][]
+
+　[DEMO][]で実際に動作を確認できます。
+
+* [DEMO][]
+
+[DEMO]:https://ytyaru.github.io/Monogatari.Demo.Japanese.20220726185300/
+-->
 
 ## Features
-- Responsive out of the box
-- Plays nice with electron for Desktop apps and phonegap for mobile apps
-- Simple Syntax
-- Extensible, you just can't imagine how much!
+
+- 箱から出してすぐに反応する
+- デスクトップアプリの場合はelectron、モバイルアプリの場合はphonegapとうまく連携します
+- 単純な構文
+- 拡張可能、あなたはどれだけ想像することはできません！
 
 Website: https://monogatari.io/
 
 ## Documentation
-You can see the documentation in https://monogatari.io/documentation/
 
-You can also contribute to the documentation in the [Website repository](https://github.com/Hyuchia/MonogatariWebsite)
+* [ドキュメント][]
+* [Website repository](https://github.com/Hyuchia/MonogatariWebsite)に投稿することもできる
+
+[ドキュメント]:https://monogatari.io/documentation/
 
 ## Contributing
 
-If you have contributed to this project, or in the webpage, please make sure you are listed in the contributors list of the website, you can add yourself in the [contributors file](https://github.com/Hyuchia/MonogatariWebsite/blob/master/templates/contributors.html) of the website
+　このプロジェクトまたはWebページに貢献した場合は、Webサイトの貢献者リストにリストされていることを確認してください。[貢献者ファイル](https://github.com/Hyuchia/MonogatariWebsite/)に自分を追加できます。ウェブサイトの[contributors file](https://github.com/Hyuchia/MonogatariWebsite/blob/master/templates/contributors.html)
 
 ## License
-Monogatari is a Free Open Source Software project released under the [MIT License](https://raw.githubusercontent.com/Hyuchia/Monogatari/master/LICENSE).
+
+　物語は、[MITライセンス](https://raw.githubusercontent.com/Hyuchia/Monogatari/master/LICENSE)の下でリリースされた無料のオープンソースソフトウェアプロジェクトです。
