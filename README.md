@@ -8,15 +8,16 @@
 
 　このプロジェクトは[Demo-code][]をフォークして日本語化したものです。[Demo][]が日本語で表示されます。
 
-<!--
 ## [DEMO][]
 
 　[DEMO][]で実際に動作を確認できます。
 
 * [DEMO][]
 
+[![eye-catch]][DEMO]
+
 [DEMO]:https://ytyaru.github.io/Monogatari.Demo.Japanese.20220726185300/
--->
+[eye-catch]:eye-catch.png
 
 ## Features
 
