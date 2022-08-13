@@ -1,14 +1,4 @@
-# [Monogatari][] [Demo][] 日本語化
-
-[Monogatari]:https://github.com/Monogatari/Monogatari
-[Demo-code]:https://github.com/Monogatari/Demo
-[Demo]:https://monogatari.io/demo/
-
-　ビジュアルノベルを最新のWebに持ち込み、次のレベルに引き上げるために構築されているため、誰でも簡単にビジュアルノベルを作成および配布できるため、誰でもどこでも楽しむことができ、誰もいない機能を備えたゲームを作成できます。想像したことがあります...ビジュアルノベルが進化する時が来ました。
-
-　このプロジェクトは[Demo-code][]をフォークして日本語化したものです。[Demo][]が日本語で表示されます。
-
-## [DEMO][]
+# [DEMO][]
 
 　[DEMO][]で実際に動作を確認できます。
 
@@ -18,6 +8,16 @@
 
 [DEMO]:https://ytyaru.github.io/Monogatari.Demo.Japanese.20220726185300/
 [eye-catch]:eye-catch.png
+
+## [Monogatari][] [Demo][base-demo] 日本語化プロジェクト
+
+　このリポジトリは[Monogatari][]の[デモゲームのリポジトリ][base-demo-code]をフォークしたもので、[デモゲーム][base-demo]を日本語化したものです。
+
+[Monogatari]:https://github.com/Monogatari/Monogatari
+[base-demo-code]:https://github.com/Monogatari/Demo
+[base-demo]:https://monogatari.io/demo/
+
+　ビジュアルノベルを最新のWebに持ち込み、次のレベルに引き上げるために構築されているため、誰でも簡単にビジュアルノベルを作成および配布できるため、誰でもどこでも楽しむことができ、誰もいない機能を備えたゲームを作成できます。想像したことがあります...ビジュアルノベルが進化する時が来ました。
 
 ## Features
 
@@ -42,3 +42,4 @@ Website: https://monogatari.io/
 ## License
 
 　物語は、[MITライセンス](https://raw.githubusercontent.com/Hyuchia/Monogatari/master/LICENSE)の下でリリースされた無料のオープンソースソフトウェアプロジェクトです。
+
